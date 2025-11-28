@@ -115,58 +115,15 @@ Generate output messages.
 
 ## 📐 User Stories
 
-  --------------------------------------------------------------------------
-  N°   User Story    Requirements     Deliverables     Sprint    Deadline
-  ---- ------------- ---------------- ---------------- --------- -----------
-  1    As a QA       Analyze fields;  Equivalence      Sprint 1  Nov 18
-       Analyst, I    define           class document.            
-       need to       valid/invalid                               
-       define        ranges; prepare                             
-       equivalence   examples.                                   
-       classes to                                                
-       ensure                                                    
-       structured                                                
-       test                                                      
-       coverage.                                                 
+| N° | User Story | Requirements | Deliverables | Sprint | Deadline |
+|----|------------|--------------|--------------|--------|----------|
+| 1 | As a QA Analyst, I need to define equivalence classes to ensure structured test coverage. | Analyze fields; define valid/invalid ranges; prepare examples. | Equivalence class document. | Sprint 1 | Nov 18 |
+| 2 | As a QA Analyst, I need an executive PDF to present the equivalence classes. | Introduce concept; justify classes; build tables. | PDF presentation. | Sprint 1 | Nov 18 |
+| 3 | As a QA Tester, I need 12 detailed test cases. | Define inputs, states, expected results. | Excel with 12 test cases. | Sprint 2 | Nov 24 |
+| 4 | As a QA Tester, I need a coverage report. | Create coverage table; ensure variety. | Excel report. | Sprint 2 | Nov 24 |
+| 5 | As a Developer, I need a Java simulation that applies the validation logic. | Implement validation rules; execute cases. | Java script + README.txt. | Sprint 3 | Nov 29 |
+| 6 | As a Developer, I need to deliver a final integrated submission. | Combine all outputs; create video. | Final PDF + MP4. | Sprint 3 | Nov 29 |
 
-  2    As a QA       Introduce        PDF              Sprint 1  Nov 18
-       Analyst, I    concept; justify presentation.              
-       need an       classes; build                              
-       executive PDF tables.                                     
-       to present                                                
-       the                                                       
-       equivalence                                               
-       classes.                                                  
-
-  3    As a QA       Define inputs,   Excel with 12    Sprint 2  Nov 24
-       Tester, I     states, expected test cases.                
-       need 12       results.                                    
-       detailed test                                             
-       cases.                                                    
-
-  4    As a QA       Create coverage  Excel report.    Sprint 2  Nov 24
-       Tester, I     table; ensure                               
-       need a        variety.                                    
-       coverage                                                  
-       report.                                                   
-
-  5    As a          Implement        Java script +    Sprint 3  Nov 29
-       Developer, I  validation       README.txt.                
-       need a Java   rules; execute                              
-       simulation    cases.                                      
-       that applies                                              
-       the                                                       
-       validation                                                
-       logic.                                                    
-
-  6    As a          Combine all      Final PDF + MP4. Sprint 3  Nov 29
-       Developer, I  outputs; create                             
-       need to       video.                                      
-       deliver a                                                 
-       final                                                     
-       integrated                                                
-       submission.                                               
-  --------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
@@ -222,6 +179,159 @@ services.
 -   Documentation support
 
 ------------------------------------------------------------------------
+
+## 🟢 Sprint 3 Overview
+Sprint 3 focuses on transforming the validation logic and test design from previous sprints into a functional **Java simulation**, complete with **JUnit automated tests** and a simple **frontend interface** for user input.
+
+This sprint ensures that the banking application behaves correctly in real execution scenarios, including frontend validation, backend validation, and automated test verification.
+
+---
+
+## 🎯 Objectives
+
+- Implement a **Java validation program** using the equivalence classes from Sprint 1.
+- Execute **three representative test cases**:
+  - 1 valid case  
+  - 1 invalid case  
+  - 1 boundary case  
+- Generate **clear success or error messages** based on user input.
+- Produce a **README.txt** with execution instructions.
+- Create **JUnit 5 automated tests** replicating the 12 test cases from Sprint 2.
+- Prepare the project for final delivery.
+
+---
+
+## 🧩 Activities Completed
+
+- ✔ Development of a `BankValidator.java` class containing all validation logic.  
+- ✔ Implementation of a simulation script (`DemoApplication.java`) to run validation examples.  
+- ✔ Creation of a simple **frontend** using vanilla JavaScript + HTML + CSS to collect user inputs.  
+- ✔ Connection between frontend JavaScript and backend validation through form logic simulation.  
+- ✔ Addition of **JUnit 5 test suite** validating all 12 test cases:
+  - Valid cases  
+  - Invalid numeric formats  
+  - Invalid lengths  
+  - Invalid characters  
+  - Invalid order operations  
+- ✔ Review and debugging of Java validation rules.  
+- ✔ Documentation of findings and best practices.
+
+---
+
+## 📦 Deliverables
+
+- 💻 **Java validation script** (`BankValidator.java`)
+- 🧪 **JUnit test suite** (`BankValidatorTest.java`)
+- 🌐 **Frontend prototype**  
+  - `index.html`  
+  - `app.js`  
+  - `styles.css`
+- 📄 **README.txt** with execution instructions  
+- 📝 Developer notes and validation summary
+
+---
+
+## 🗂 Project Structure
+
+The project follows a clean, modular structure as shown below:
+
+```
+src/
+├── main/
+│   ├── java/com/example/demo/
+│   │   ├── BankValidator.java
+│   │   ├── DemoApplication.java
+│   │
+│   └── resources/
+│       ├── static/
+│       │   ├── index.html
+│       │   ├── styles.css
+│       │   └── app.js
+│       └── application.properties
+│
+└── test/
+    └── java/com/example/demo/
+        └── BankValidatorTest.java
+```
+
+### 📌 Explanation of Project Structure
+
+- **BankValidator.java**  
+  Contains all backend validation rules:  
+  - Bank code (3 digits)  
+  - Branch code (4 digits)  
+  - Account number (10 digits)  
+  - Personal key (4 digits)  
+  - Order value (1 = checkbook, 2 = statement)
+
+- **DemoApplication.java**  
+  Allows quick manual testing through `main()` execution.
+
+- **Frontend files (`index.html`, `app.js`, `styles.css`)**  
+  Simulate a real-world banking form.  
+  Validations occur first in JavaScript (frontend) and then repeated in Java (backend).
+
+- **JUnit Test Suite**  
+  Automatically runs all 12 test cases from Sprint 2.
+
+---
+
+## 🧪 JUnit Test Implementation
+
+The Sprint 3 JUnit test suite validates:
+
+| Test ID | Input Case | Expected Result |
+|--------|-------------|-----------------|
+| TC01 | All valid data | ✔ Operation accepted |
+| TC02 | Bank code contains letters | ❌ Invalid bank code |
+| TC03 | Bank code too short | ❌ Wrong length |
+| TC04 | Branch code has letters | ❌ Only numbers allowed |
+| TC05 | Branch code too long | ❌ Wrong length |
+| TC06 | Account number too short | ❌ Wrong length |
+| TC07 | Account number too long | ❌ Too many digits |
+| TC08 | Account has letters | ❌ Invalid characters |
+| TC09 | Personal key has letters | ❌ Invalid key |
+| TC10 | Personal key too long | ❌ Wrong length |
+| TC11 | Order value = 3 | ❌ Invalid operation |
+| TC12 | Order value has letters | ❌ Invalid data type |
+
+All test cases are automated using:
+
+- `assertTrue()`
+- `assertFalse()`
+- `assertEquals()`
+
+The JUnit suite ensures backend validation matches Sprint 1–2 specifications.
+
+---
+
+## 🖼 Image Placeholders
+
+### 🖥 Frontend Screenshot  
+*Paste your frontend UI image here*
+
+
+<img width="1877" height="1082" alt="image" src="https://github.com/user-attachments/assets/412c3b59-5cef-4aed-846b-01c83d446c43" />
+<img width="1871" height="1081" alt="image" src="https://github.com/user-attachments/assets/da3c0bba-ed83-4b22-a757-42697fba1c31" />
+<img width="1874" height="1088" alt="image" src="https://github.com/user-attachments/assets/1cf10d5a-8696-483e-ad23-1f8793c44ffb" />
+
+
+---
+
+### 🧪 JUnit Test Results Screenshot  
+*Paste your JUnit green-bar test results here*
+
+
+<img width="1637" height="594" alt="image" src="https://github.com/user-attachments/assets/093a1abc-497f-4f3a-b602-7b308b80fa52" />
+
+<img width="372" height="158" alt="image" src="https://github.com/user-attachments/assets/60009392-8205-4ccf-a959-22f8772b5399" />
+
+
+---
+
+**"Building quality software, one Sprint at a time."**  
+Developed for the Digital NAO Challenge — REM Consultancy
+
 
 ## 📦 Backlog & Roadmap
 
