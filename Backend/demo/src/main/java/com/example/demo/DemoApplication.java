@@ -61,7 +61,7 @@ public class DemoApplication {
 			return "Error: Invalid operation order (allowed: 1 or 2)";
 
 		// If all validations pass:
-		return "Operation accepted ✓";
+		return "Operation accepted ";
 	}
 
 }

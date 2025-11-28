@@ -1,0 +1,88 @@
+/* === Global Styles === */
+body {
+    background: #f2f4f7;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* === Form Container === */
+.container {
+    background: #ffffff;
+    padding: 30px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333333;
+    font-weight: 600;
+}
+
+/* === Input Fields === */
+input {
+    width: 92%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+/* === Button === */
+button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background: #4a90e2;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #3c7dc0;
+}
+
+/* === Result Message === */
+#result {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Success and Error Colors (optional if you assign classes in JS) */
+.success {
+    color: #2e8b57;
+}
+
+.error {
+    color: #d9534f;
+}
+
+/* Animation */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
